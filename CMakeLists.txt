@@ -8,7 +8,10 @@ find_package(glfw3 REQUIRED)
 
 set (SOURCES
      src/main.c
+     src/window.c
+     include/window.h
 )
 
 add_executable(pong  ${SOURCES})
-target_link_libraries(pong Vulkan::Vulkan glfw)
+target_link_libraries(pong Vulkan::Vulkan)
+target_link_libraries(pong glfw)

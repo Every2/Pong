@@ -1,6 +1,13 @@
-#include "vulkan/vulkan.h"
-#include <stdio.h>
+#include "../include/window.h"
 
 int main() {
-  printf("Hello World"); 
+    glfwInit();
+    GLFWwindow* window = createWindow(800, 600, "Pong");
+
+    while (!glfwWindowShouldClose(window)) {
+        glfwPollEvents();
+    }
+
+    glfwDestroyWindow(window);
+    glfwTerminate();
 }
