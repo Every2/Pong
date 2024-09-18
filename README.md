@@ -6,27 +6,15 @@ Pong é o projeto final do grupo de estudos de C da UL (Universidade Brasileira 
 
 # Dependencias
 
-
-Nesse projeto acabei tendo problemas com o Conan, então as bibliotecas devem ser instaladas manualmente. Você pode encontrar o link pra download e as instruções oficias abaixo, caso não haja, consulte a documentação oficial.
-
-
-[Raylib Linux](https://github.com/raysan5/raylib/wiki/Working-on-GNU-Linux#install-on-gnu-linux)
+O projeto usa o package manager [vcpkg](https://learn.microsoft.com/pt-br/vcpkg/get_started/get-started?pivots=shell-cmd)
 
 
-[Raylib Windows](https://github.com/raysan5/raylib/wiki/Working-on-Windows)
+Após finalizar a instalação do vcpkg, rode:
 
-
-Vulkan no linux já vem instalado nas distribuições por conta dos drivers, então você já deve ter os drivers em seu sistema.
-
-
-[Vulkan Windows](https://vulkan.lunarg.com/doc/view/latest/windows/getting_started.html)
-
-
-[GLFW](https://www.glfw.org/download.html)
-
-
-CMake também é um caso onde já vem por padrão nas distribuições, use seu gerenciador de pacotes e instale ele.
-
-
-[CMake Windows](https://cmake.org/download/)
+```shell
+cmake --preset=default
+cmake -DCMAKE_BUILD_TYPE=Release -build build 
+cd build
+./pong
+```
 
