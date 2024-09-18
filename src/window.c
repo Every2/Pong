@@ -17,22 +17,22 @@ void create_instance(VkInstance* instance) {
     appinfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
     appinfo.apiVersion = VK_API_VERSION_1_0;
 
-    VkInstanceCreateInfo createinfo;
-    createinfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
-    createinfo.pApplicationInfo = &appinfo;
-
+    const char layer_list[][VK_MAX_EXTENSION_NAME_SIZE] = {"VK_LAYER_KHRONOS_validation"};
+    const char* layers[] = {layer_list[0]};
     uint32_t glfw_extension_count = 0;
     const char** glfw_extensions;
 
-    glfw_extensions = glfwGetRequiredInstanceExtensions(&glfw_extension_count);
-
-    createinfo.enabledExtensionCount = glfw_extension_count;
-    createinfo.ppEnabledExtensionNames = glfw_extensions;
-    createinfo.enabledLayerCount = 0;
+    VkInstanceCreateInfo createinfo = {VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO,
+                                       NULL,
+                                       0,
+                                       &appinfo,
+                                       1,
+                                       layers,
+                                       glfw_extension_count,
+                                       glfw_extensions};
 
     if (vkCreateInstance(&createinfo, NULL, instance) != VK_SUCCESS) {
         printf("Failed to create instance");
         exit(EXIT_FAILURE);
     }
 }
-
