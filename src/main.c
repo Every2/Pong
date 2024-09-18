@@ -2,12 +2,16 @@
 
 int main() {
     glfwInit();
-    GLFWwindow* window = createWindow(800, 600, "Pong");
+    GLFWwindow* window = create_window(800, 600, "Pong");
+    VkInstance instance;
+
+    create_instance(&instance);
 
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
     }
 
+    vkDestroyInstance(instance, NULL);
     glfwDestroyWindow(window);
     glfwTerminate();
 }

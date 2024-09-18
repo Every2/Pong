@@ -12,7 +12,7 @@ O projeto usa o package manager [vcpkg](https://learn.microsoft.com/pt-br/vcpkg/
 Após finalizar a instalação do vcpkg, rode:
 
 ```shell
-cmake --preset=default
+cmake --preset=vcpkg
 cmake -DCMAKE_BUILD_TYPE=Release -build build 
 cd build
 ./pong
