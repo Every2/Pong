@@ -7,5 +7,5 @@
 #include <sys/types.h>
 #include <vulkan/vulkan_core.h>
 
-void pick_physical_device(VkInstance* instance, uint32_t size);
+VkPhysicalDevice pick_physical_device(VkInstance* instance);
 bool is_device_suitable(VkPhysicalDevice* device);

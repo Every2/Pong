@@ -1,12 +1,34 @@
 #include "../include/devices.h"
-#include <stdint.h>
-#include <vulkan/vulkan_core.h>
 
-void pick_physical_device(VkInstance* instance, uint32_t device_count) {
-    VkPhysicalDevice* physical_device = malloc(device_count * sizeof(VkPhysicalDevice));
+VkPhysicalDevice pick_physical_device(VkInstance* instance) {
+    VkPhysicalDevice device = VK_NULL_HANDLE;
 
-    vkEnumeratePhysicalDevices(*instance, &device_count, physical_device);
+    uint32_t device_count = 0;
+    vkEnumeratePhysicalDevices(*instance, &device_count, VK_NULL_HANDLE);
+
+    if (device_count == 0) {
+        fprintf(stderr, "failed to find gpu with vulkan support");
+        exit(EXIT_FAILURE);
+    }
+
+    VkPhysicalDevice* physical_devices = malloc(device_count * sizeof physical_devices);
+
+    vkEnumeratePhysicalDevices(*instance, &device_count, physical_devices);
+
+    for (int i = 0; i < device_count; i++)
+        if (is_device_suitable(&physical_devices[i])) {
+            device = physical_devices[i];
+            break;
+        }
+
+    if (physical_devices == VK_NULL_HANDLE) {
+        fprintf(stderr, "failed to find suitable gpu");
+        exit(EXIT_FAILURE);
+    }
+
+    return device;
 }
+
 
 bool is_device_suitable(VkPhysicalDevice* device) {
     return true;
