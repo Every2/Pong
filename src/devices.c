@@ -1,4 +1,5 @@
 #include "../include/devices.h"
+#include "../include/queues.h"
 
 VkPhysicalDevice pick_physical_device(VkInstance* instance) {
     VkPhysicalDevice device = VK_NULL_HANDLE;
@@ -31,5 +32,7 @@ VkPhysicalDevice pick_physical_device(VkInstance* instance) {
 
 
 bool is_device_suitable(VkPhysicalDevice* device) {
-    return true;
+    QueueFamilyIndinces indices = find_queue_families(*device);
+
+    return indices.has_value;
 }
