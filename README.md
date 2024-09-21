@@ -18,3 +18,6 @@ cd build
 ./pong
 ```
 
+# Raylib
+
+Caso queira usar a versão do projeto na raylib, o processo é o mesmo. Basta apenas ir na pasta. 
