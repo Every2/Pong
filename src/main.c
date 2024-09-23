@@ -1,18 +1,23 @@
-#include "../include/window.h"
+#include <raylib.h>
+
+#include "../include/lib.h"
 
 int main() {
-    glfwInit();
-    GLFWwindow* window = create_window(800, 600, "Pong");
-    VkInstance instance;
+    const int width = 800;
+    const int height = 600;
 
-    create_instance(&instance);
+    InitWindow(width, height, "Pong");
 
-    while (!glfwWindowShouldClose(window)) {
-        glfwPollEvents();
+    SetTargetFPS(60);
+
+    while (!WindowShouldClose()) {
+        BeginDrawing();
+        ClearBackground(BLACK);
+        DrawCircle(400, 300, 7.0, WHITE);
+        DrawRectangle(150, 250, 20, 120, WHITE);
+        DrawRectangle(630, 250, 20, 120, WHITE);
+        EndDrawing();
     }
-
-    vkDestroyInstance(instance, NULL);
-    glfwDestroyWindow(window);
-    glfwTerminate();
+    CloseWindow();
+    return 0;
 }
-
