@@ -4,11 +4,10 @@ project(pong)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "")
 
-find_package(Raylib REQUIRED)
+find_package(raylib REQUIRED)
 
 set (SOURCES
      src/main.c
-     include/lib.h
 )
 
 add_executable(pong  ${SOURCES})
