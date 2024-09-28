@@ -18,3 +18,10 @@ cd build
 ./pong
 ```
 
+# Controles
+
+| Jogador     | Movimento para Cima | Movimento para Baixo |
+|-------------|---------------------|----------------------|
+| Player 1    | W                   | S                    |
+| Player 2    | ↑                   | ↓                    |
+
