@@ -13,9 +13,19 @@ Após finalizar a instalação do vcpkg, rode:
 
 ```shell
 cmake --preset=vcpkg
-cmake -DCMAKE_BUILD_TYPE=Release -build build 
-cd build
-./pong
+//Com Ninja
+mkdir -p build && cd build && cmake -G Ninja -DCMAKE_BUILD_TYPE=Release .. && ninja && ./pong
+//Com makefile
+mkdir -p build && cd build && cmake -DCMAKE_BUILD_TYPE=Release .. && make && ./pong
+```
+
+Se já tiver a raylib instalada e não quiser instalar, rode:
+
+```shell
+//Com Ninja
+mkdir -p build && cd build && cmake -G Ninja -DCMAKE_BUILD_TYPE=Release .. && ninja && ./pong
+//Com makefile
+mkdir -p build && cd build && cmake -DCMAKE_BUILD_TYPE=Release .. && make && ./pong
 ```
 
 # Controles
