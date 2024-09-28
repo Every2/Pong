@@ -4,6 +4,12 @@
 Pong é o projeto final do grupo de estudos de C da UL (Universidade Brasileira Livre). 
 
 
+# Download
+
+
+Binários pra Linux e Windows [aqui](https://github.com/Every2/Pong/releases/tag/1.0.0)
+
+
 # Dependencias
 
 O projeto usa o package manager [vcpkg](https://learn.microsoft.com/pt-br/vcpkg/get_started/get-started?pivots=shell-cmd)
